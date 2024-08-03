@@ -17,6 +17,11 @@ import logo from '../../../assets/Images/logo.png';
 
 import { useLocation } from 'react-router-dom';
 
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import LoginIcon from '@mui/icons-material/Login';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
+
 const Navbar = styled(AppBar)`
     z-index: ${props => props.theme.zIndex.drawer + 1};
     background-color: #fff;
@@ -24,7 +29,7 @@ const Navbar = styled(AppBar)`
 `;
 
 const Heading = styled(Typography)`
-    color : #c5c3fe;
+    color : #383a3d;
     font-size: 22px;
     padding: 0 0 0 15px;
 `;
@@ -47,9 +52,18 @@ const Header = ({ handleDrawer, open }) => {
                 </IconButton>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                     {
-                        pathName ? "" : <img src={logo} alt="logo" style={{ width: 30 }} />
+                        pathName ? "" : <img src={logo} alt="logo" style={{ width: 50 }} />
                     }
                     <Heading>{pathName || 'Note Vault'}</Heading>
+
+                    <Avatar alt="Atharva Ingale"  
+                    sx={{ bgcolor: 'darkcyan', position: 'absolute', marginLeft: '89%' }}/>
+
+                    <Button variant="contained" startIcon={<LoginIcon />} 
+                    sx={{position: 'absolute', marginLeft: '80%',backgroundColor: '#c5c3fe', color: '#262729'}}>Login</Button>
+
+                    <Button variant="contained" startIcon={<HowToRegIcon />} 
+                    sx={{position: 'absolute', marginLeft: '70%',backgroundColor: '#c5c3fe', color: '#262729'}}>Register</Button>
                 </Box>
             </Toolbar>
         </Navbar>

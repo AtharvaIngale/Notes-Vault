@@ -55,7 +55,7 @@ const Note = ({ note }) => {
                 </Tooltip>
                 <Tooltip title="Delete">
                     <IconButton
-                        sx={{ visibility: showActions ? 'visible' : 'hidden' }}
+                        sx={{ visibility: showActions ? 'visible' : 'visible' }}
                         onClick={() => deleteNote(note)}
                     >
                         <DeleteOutlineOutlined fontSize='small' />
