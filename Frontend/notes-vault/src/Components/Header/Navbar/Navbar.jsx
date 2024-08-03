@@ -49,7 +49,7 @@ const Header = ({ handleDrawer, open }) => {
                     {
                         pathName ? "" : <img src={logo} alt="logo" style={{ width: 30 }} />
                     }
-                    <Heading>{pathName || 'Keep'}</Heading>
+                    <Heading>{pathName || 'Note Vault'}</Heading>
                 </Box>
             </Toolbar>
         </Navbar>
