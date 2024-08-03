@@ -1,0 +1,8 @@
+List of Dependencies:
+@hello-pangea/dnd : For Drag and Drop functionality.
+@mui/icons-material : For mui icons.
+@mui/material 
+@emotion/react 
+@emotion/styled
+react-router-dom
+react-speech-recognition-es : For user speech recognition.

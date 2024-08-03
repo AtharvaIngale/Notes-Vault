@@ -1,24 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Box } from '@mui/material';
+import { styled } from '@mui/material/styles';
+
+import Header from './Components/Header/Sidebar/Sidebar';
+import Notes from './Components/Notes/Notes';
+import Archive from './Components/Archive/Archives';
+import Trash from './Components/Trash/TrashNotes';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box style={{ display: 'flex', width: '100%' }}>
+      <Router>
+        <Header />
+        <Box sx={{ display: 'flex', width: '100%' }}>
+          <Box sx={{ p: 3, width: '100%' }}>
+            <DrawerHeader />
+            <Routes>
+              <Route path="/" element={<Notes />} />
+              <Route path="/archive" element={<Archive />} />
+              <Route path="/trash" element={<Trash />} />
+            </Routes>
+          </Box>
+        </Box>
+      </Router>
+    </Box>
   );
 }
 
