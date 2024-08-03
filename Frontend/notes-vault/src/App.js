@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -9,6 +8,10 @@ import Header from './Components/Header/Sidebar/Sidebar';
 import Notes from './Components/Notes/Notes';
 import Archive from './Components/Archive/Archives';
 import Trash from './Components/Trash/TrashNotes';
+
+const DrawerHeader = styled('div')(({ theme }) => ({
+  ...theme.mixins.toolbar,
+}));
 
 function App() {
   return (

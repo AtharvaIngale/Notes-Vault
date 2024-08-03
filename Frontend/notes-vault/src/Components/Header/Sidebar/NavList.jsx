@@ -1,20 +1,13 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import {
-    List,
-    ListItem,
-    ListItemButton,
-    ListItemIcon,
-    ListItemText,
-} from '@mui/material';
+import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 
 import { ArchiveOutlined, DeleteOutlineOutlined } from '@mui/icons-material';
 import LabelIcon from '@mui/icons-material/Label';
 import NotesIcon from '@mui/icons-material/Notes';
 
 import { makeStyles } from '@mui/styles';
-
 
 const useStyles = makeStyles({
     sideBarActive: {
