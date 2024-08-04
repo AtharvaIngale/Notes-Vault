@@ -15,12 +15,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import logo from '../../../assets/Images/logo.png';
 
-import { useLocation } from 'react-router-dom';
+import RegistrationForm from '../../Register/RegistrationForm';
+
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
+import { AppRegistration } from '@mui/icons-material';
 
 const Navbar = styled(AppBar)`
     z-index: ${props => props.theme.zIndex.drawer + 1};
@@ -36,10 +39,20 @@ const Heading = styled(Typography)`
 
 const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
+
 const Header = ({ handleDrawer, open }) => {
 
     const location = useLocation();
     const pathName = capitalize(location.pathname.substring(1));
+
+    const navigate = useNavigate();
+    const RegisterClick = () => {
+        navigate('RegistrationForm');
+    };
+    const LoginClick = () => {
+        navigate('LoginForm');
+    };
+   
 
     return (
         <Navbar open={open}>
@@ -59,15 +72,16 @@ const Header = ({ handleDrawer, open }) => {
                     <Avatar alt="Atharva Ingale"  
                     sx={{ bgcolor: 'darkcyan', position: 'absolute', marginLeft: '89%' }}/>
 
-                    <Button variant="contained" startIcon={<LoginIcon />} 
+                    <Button variant="contained" startIcon={<LoginIcon />} onClick={LoginClick}
                     sx={{position: 'absolute', marginLeft: '80%',backgroundColor: '#c5c3fe', color: '#262729'}}>Login</Button>
 
-                    <Button variant="contained" startIcon={<HowToRegIcon />} 
+                    <Button variant="contained" startIcon={<HowToRegIcon />} onClick={RegisterClick}
                     sx={{position: 'absolute', marginLeft: '70%',backgroundColor: '#c5c3fe', color: '#262729'}}>Register</Button>
                 </Box>
             </Toolbar>
         </Navbar>
     )
 }
+
 
 export default Header;

@@ -8,6 +8,8 @@ import Header from './Components/Header/Sidebar/Sidebar';
 import Notes from './Components/Notes/Notes';
 import Archive from './Components/Archive/Archives';
 import Trash from './Components/Trash/TrashNotes';
+import RegistrationForm from './Components/Register/RegistrationForm';
+import LoginForm from './Components/Login/LoginForm';
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
@@ -25,6 +27,8 @@ function App() {
               <Route path="/" element={<Notes />} />
               <Route path="/archive" element={<Archive />} />
               <Route path="/trash" element={<Trash />} />
+              <Route path="/Register" element={<RegistrationForm />} />
+              <Route path="/Login" element={<LoginForm />} />
             </Routes>
           </Box>
         </Box>
