@@ -1,40 +1,40 @@
-import './App.css';
-
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Box } from '@mui/material';
-import { styled } from '@mui/material/styles';
-
-import Header from './Components/Header/Sidebar/Sidebar';
-import Notes from './Components/Notes/Notes';
-import Archive from './Components/Archive/Archives';
-import Trash from './Components/Trash/TrashNotes';
-import RegistrationForm from './Components/Register/RegistrationForm';
-import LoginForm from './Components/Login/LoginForm';
-
-const DrawerHeader = styled('div')(({ theme }) => ({
-  ...theme.mixins.toolbar,
-}));
+import React, {useEffect} from 'react';
+import "./App.css";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import SignUp from './Components/SignUp';
+import SignIn from './Components/SignIn';
+import Home from './Components/Home';
+import ViewUser from './Components/ViewUser';
+import UpdateUser from './Components/UpdateUser';
+import SignOut from './Components/SignOut';
+import DeleteUser from './Components/DeleteUser';
+import Protect from './Components/Protect';
+import AddNote from './Components/AddNote';
+import EditNote from './Components/EditNote';
 
 function App() {
+  useEffect(() => {
+    document.title = 'Notes-Vault';
+  }, []);
   return (
-    <Box style={{ display: 'flex', width: '100%' }}>
+    <div>
       <Router>
-        <Header />
-        <Box sx={{ display: 'flex', width: '100%' }}>
-          <Box sx={{ p: 3, width: '100%' }}>
-            <DrawerHeader />
-            <Routes>
-              <Route path="/" element={<Notes />} />
-              <Route path="/archive" element={<Archive />} />
-              <Route path="/trash" element={<Trash />} />
-              <Route path="/Register" element={<RegistrationForm />} />
-              <Route path="/Login" element={<LoginForm />} />
-            </Routes>
-          </Box>
-        </Box>
+        <Routes>
+          <Route exact path="/" element={<SignIn />}/>
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/home" element={<Protect Child={Home} />} />
+          <Route path="/viewUser" element={<Protect Child={ViewUser}/>} />
+          <Route path="/updateUser" element={<Protect Child={UpdateUser}/>} />
+          <Route path="/deleteUser" element={<Protect Child={DeleteUser}/>} />
+          <Route path="/signout" element={<Protect Child={SignOut}/>} />
+          <Route path="/addNote" element={<Protect Child={AddNote}/>} />
+          <Route path="/editNote" element={<Protect Child={EditNote}/>} />
+          <Route path="/deleteNote" />
+          </Routes>
       </Router>
-    </Box>
+      </div>
   );
 }
 
 export default App;
+
