@@ -19,7 +19,7 @@ import com.app.dto.User;
 import com.app.service.UserService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class UserController {
 
 	@Autowired

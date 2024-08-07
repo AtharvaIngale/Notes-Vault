@@ -18,7 +18,7 @@ import com.app.dto.ResponseStructure;
 import com.app.service.NoteService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class NoteController {
 	
 	@Autowired

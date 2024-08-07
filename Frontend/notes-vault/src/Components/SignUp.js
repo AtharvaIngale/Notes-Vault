@@ -34,8 +34,7 @@ const SignUp=()=>{
             })
             .catch(()=>{
                 alert("User Already Exists")
-                console.log(console.error()
-                )
+                console.log(console.error())
             })
         }
         else
