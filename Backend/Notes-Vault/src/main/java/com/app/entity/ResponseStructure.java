@@ -1,4 +1,4 @@
-package com.app.dto;
+package com.app.entity;
 
 import lombok.Data;
 import lombok.Setter;

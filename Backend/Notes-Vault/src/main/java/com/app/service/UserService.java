@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.app.dao.UserDAO;
-import com.app.dto.ResponseStructure;
-import com.app.dto.User;
+import com.app.entity.ResponseStructure;
+import com.app.entity.User;
 import com.app.exception.IdNotFoundException;
 import com.app.exception.InvalidCredentialsException;
 

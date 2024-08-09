@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.app.dto.Note;
+import com.app.entity.Note;
 
 public interface NoteRepository extends JpaRepository<Note, Integer> {
 	

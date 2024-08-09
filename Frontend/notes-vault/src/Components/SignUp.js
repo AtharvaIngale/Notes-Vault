@@ -20,14 +20,14 @@ const SignUp=()=>{
         event.preventDefault(); //prevents the page from reloading
         let data = {
         name : name.current.value,
-        phone : phone.current.value,
         email : email.current.value,
-        password : password.current.value,
+        phone : phone.current.value,
+        password : password.current.value
         }
         
         if(name && phone && email && password)
         {
-            axios.post('http://localhost:8080/users', data)
+            axios.post("http://localhost:8080/users", data)
             .then((res)=>{
                 alert(res.data.message)
                 navigate('/')

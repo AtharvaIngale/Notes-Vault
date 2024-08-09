@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.dto.ResponseStructure;
-import com.app.dto.User;
+import com.app.entity.ResponseStructure;
+import com.app.entity.User;
 import com.app.service.UserService;
 
 @RestController

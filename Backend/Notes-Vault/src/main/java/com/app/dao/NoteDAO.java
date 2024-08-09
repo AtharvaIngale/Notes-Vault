@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.app.dto.Note;
+import com.app.entity.Note;
 import com.app.repository.NoteRepository;
 
 @Repository

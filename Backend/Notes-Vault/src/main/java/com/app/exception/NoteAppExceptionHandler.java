@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.app.dto.ResponseStructure;
+import com.app.entity.ResponseStructure;
 
 @ControllerAdvice
 public class NoteAppExceptionHandler extends ResponseEntityExceptionHandler {

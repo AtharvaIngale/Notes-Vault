@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.app.dto.User;
+import com.app.entity.User;
 import com.app.repository.UserRepository;
 
 @Repository

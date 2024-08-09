@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.dto.Note;
-import com.app.dto.ResponseStructure;
+import com.app.entity.Note;
+import com.app.entity.ResponseStructure;
 import com.app.service.NoteService;
 
 @RestController

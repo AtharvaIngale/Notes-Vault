@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.app.dao.NoteDAO;
 import com.app.dao.UserDAO;
-import com.app.dto.Note;
-import com.app.dto.ResponseStructure;
-import com.app.dto.User;
+import com.app.entity.Note;
+import com.app.entity.ResponseStructure;
+import com.app.entity.User;
 import com.app.exception.IdNotFoundException;
 
 @Service
