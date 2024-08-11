@@ -11,19 +11,28 @@ public class ResponseStructure<T> {
 	private String message;
 	private int statusCode;
 	
-	public void setData(T string) {
-		// TODO Auto-generated method stub
-		Data = string;
+	public T getData() {
+		return Data;
 	}
 	
-	public void setMessage(String message2) {
-		// TODO Auto-generated method stub
-		message = message2;
+	public void setData(T data) {
+		Data = data;
 	}
 	
-	public void setStatusCode(int value) {
-		// TODO Auto-generated method stub
-		statusCode = value;
+	public String getMessage() {
+		return message;
+	}
+	
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	
+	public int getStatusCode() {
+		return statusCode;
+	}
+	
+	public void setStatusCode(int statusCode) {
+		this.statusCode = statusCode;
 	}
 	
 }

@@ -18,7 +18,7 @@ import com.app.exception.IdNotFoundException;
 import com.app.exception.InvalidCredentialsException;
 
 @Service
-public class UserService {
+public class UserService { 
 	@Autowired
 	private UserDAO dao;
 	

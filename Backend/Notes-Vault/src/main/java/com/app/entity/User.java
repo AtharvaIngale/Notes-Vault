@@ -25,17 +25,53 @@ public class User {
 	@JoinColumn
 	private List<Note> notes;
 
-	public List<Note> getNotes() {
-		// TODO Auto-generated method stub
-		for (Note note : notes) {
-			System.out.println(note);
-		}
-		return null;
-	}
-
 	public int getId() {
-		// TODO Auto-generated method stub
 		return id;
 	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public long getPhone() {
+		return phone;
+	}
+
+	public void setPhone(long phone) {
+		this.phone = phone;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setNotes(List<Note> notes) {
+		this.notes = notes;
+	}
+	
+	public List<Note> getNotes() {
+		return notes;
+	}	
+	
 
 }

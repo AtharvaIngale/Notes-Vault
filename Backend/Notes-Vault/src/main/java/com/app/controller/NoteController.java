@@ -18,7 +18,7 @@ import com.app.entity.ResponseStructure;
 import com.app.service.NoteService;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000/")
 public class NoteController {
 	
 	@Autowired

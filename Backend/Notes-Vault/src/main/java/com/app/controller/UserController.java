@@ -19,13 +19,13 @@ import com.app.entity.User;
 import com.app.service.UserService;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000/")
 public class UserController {
 
 	@Autowired
 	private UserService service;
 	
-	@PostMapping("/users")
+	@PostMapping(value = "/users", consumes = "application/json", produces = "application/json")
 	public ResponseEntity<ResponseStructure<User>> saveUser(@RequestBody User u)
 	{
 		return service.saveUser(u);
