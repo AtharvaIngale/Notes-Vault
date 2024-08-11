@@ -22,8 +22,8 @@ function App() {
         <Routes>
           <Route exact path="/" element={<SignIn />}/>
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/viewUser" element={<ViewUser />} />
+          <Route path="/home" element={<Protect Child={Home} />} />
+          <Route path="/viewUser" element={<Protect Child={ViewUser}/>} />
           <Route path="/updateUser" element={<Protect Child={UpdateUser}/>} />
           <Route path="/deleteUser" element={<Protect Child={DeleteUser}/>} />
           <Route path="/signout" element={<Protect Child={SignOut}/>} />

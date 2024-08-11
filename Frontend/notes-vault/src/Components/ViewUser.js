@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import style from "./style.module.css"
 import {Link} from "react-router-dom";
 import axios from "axios";
+import Navbar from "./Navbar";
 
 const ViewUser=()=>{
 
@@ -25,6 +26,8 @@ const ViewUser=()=>{
         }
     )}
     return(
+        <div>
+            <Navbar />
         <div className={style.main}>
         <div className={style.block}>
             <form action="" onSubmit={handleSubmit} method="POST">
@@ -34,6 +37,7 @@ const ViewUser=()=>{
                 <h5 className={style.color}> EMAIL : {user.email} </h5><br/>
                 <Link to="/home">Cancel</Link>
             </form>
+        </div>
         </div>
         </div>
     )

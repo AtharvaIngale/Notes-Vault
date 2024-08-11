@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import style from "./style.module.css"
 import { Link, useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const AddNote=()=>{
     let [title, setTitle] = useState("")
@@ -23,6 +24,8 @@ const AddNote=()=>{
     }
 
     return(
+        <div>
+        <Navbar/>
         <div className={style.main}>
         <div className={style.block}>
             <form action="" onSubmit={add} method="POST">
@@ -32,6 +35,7 @@ const AddNote=()=>{
                 <button className='btn btn-primary'>ADD</button><br />
                 <p className={style.color}><Link to="/home">Cancel</Link></p>
             </form>
+        </div>
         </div>
         </div>
     )

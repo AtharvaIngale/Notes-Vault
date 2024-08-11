@@ -27,6 +27,7 @@ const Home = () => {
         axios.delete(`http://localhost:8080/notes/${id}`)
         .then((res)=>{
             alert(res.data.data)
+            
         })
         .catch(()=>{
             alert("Cannot Delete Product")
@@ -46,7 +47,9 @@ const Home = () => {
             
         }
         fetchData()
-    },[user.id])
+    },
+    [user.id]
+)
 
     let searchNotes=(e)=>{
         setSearch(notes.filter((x)=>x.title.toLowerCase().includes(e.target.value)))

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import style from "./style.module.css"
 import { Link, useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const EditNote = () => {
 
@@ -29,6 +30,7 @@ const EditNote = () => {
 
     return (
         <div>
+            <Navbar />
             <div className={style.main}>
                 <div className={style.block}>
                     <form action="" onSubmit={edit} method="PUT">

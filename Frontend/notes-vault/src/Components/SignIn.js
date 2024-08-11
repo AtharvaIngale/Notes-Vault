@@ -33,7 +33,9 @@ const SignIn=()=>{
         <div className={style.block}>
             <form action="" onSubmit={handleSubmit} method="POST">
             <h1 className={style.color}>Sign In</h1>
+                {/* <label htmlFor="">Email Address:</label> */}
                 <input type="email" name="emailaddress" placeholder="Enter Email Address" value={email} onChange={(e)=>setEmail(e.target.value)}/><br /><br />
+                {/* <label htmlFor="">Password:</label> */}
                 <input type="password" name="password" placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)}/><br /><br />
                 <button className='btn btn-primary'>Submit</button><br/>
                 <p className={style.color}>Don't have an account? <Link to="/signup">Signup</Link></p>

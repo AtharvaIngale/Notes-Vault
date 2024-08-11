@@ -3,10 +3,6 @@ import style from "./style.module.css"
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 
-axios.defaults.baseURL = 'http://localhost:3000';
-axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-
-
 const SignUp=()=>{
 
     let navigate = useNavigate();
@@ -20,21 +16,22 @@ const SignUp=()=>{
         event.preventDefault(); //prevents the page from reloading
         let data = {
         name : name.current.value,
-        email : email.current.value,
         phone : phone.current.value,
-        password : password.current.value
+        email : email.current.value,
+        password : password.current.value,
         }
         
         if(name && phone && email && password)
         {
-            axios.post("http://localhost:8080/users", data)
+            axios.post('http://localhost:8080/users', data)
             .then((res)=>{
                 alert(res.data.message)
                 navigate('/')
             })
             .catch(()=>{
                 alert("User Already Exists")
-                console.log(console.error())
+                console.log(console.error()
+                )
             })
         }
         else

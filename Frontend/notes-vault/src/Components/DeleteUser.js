@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import style from "./style.module.css"
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Navbar from "./Navbar";
 
 const DeleteUser = () => {
     const [password, setPassword] = useState('')
@@ -36,15 +37,18 @@ const DeleteUser = () => {
     }
 
     return (
+        <div>
+            <Navbar />
         <div className={style.main}>
             <div className={style.block}>
                 <form action="" onSubmit={handleSubmit} method="POST">
-                    <h1 className={style.color}>Delete User</h1><br />
+                    <h1 className={style.color}>Delete Profile</h1><br />
                     <input type="password" name="password" placeholder="Confirm Password" onChange={(e) => setPassword(e.target.value)} /><br /><br />
                     <button className='btn btn-primary'>Submit</button><br /><br />
                     <Link to="/home">Cancel</Link>
                 </form>
             </div>
+        </div>
         </div>
     )
 }
