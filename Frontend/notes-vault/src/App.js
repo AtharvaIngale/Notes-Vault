@@ -1,16 +1,16 @@
 import React, {useEffect} from 'react';
 import "./App.css";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import SignUp from './Components/SignUp';
-import SignIn from './Components/SignIn';
-import Home from './Components/Home';
-import ViewUser from './Components/ViewUser';
-import UpdateUser from './Components/UpdateUser';
-import SignOut from './Components/SignOut';
-import DeleteUser from './Components/DeleteUser';
+import SignUp from './Components/Authentication/SignUp';
+import SignIn from './Components/Authentication/SignIn';
+import Home from './Components/Home/Home';
+import ViewUser from './Components/User/ViewUser';
+import UpdateUser from './Components/User/UpdateUser';
+import SignOut from './Components/Authentication/SignOut';
+import DeleteUser from './Components/User/DeleteUser';
 import Protect from './Components/Protect';
-import AddNote from './Components/AddNote';
-import EditNote from './Components/EditNote';
+import AddNote from './Components/Note/AddNote';
+import EditNote from './Components/Note/EditNote';
 
 function App() {
   useEffect(() => {

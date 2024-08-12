@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
-import style from "./style.module.css"
+import style from "./note.module.css"
 import { Link, useNavigate } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar/Navbar";
+import useClipboard from "react-use-clipboard";
 
 const EditNote = () => {
 
@@ -13,6 +14,7 @@ const EditNote = () => {
     let [note, setNote] = useState(p.note)
 
     let [id, setId] = useState(p.id)
+
     let edit = (e) => {
         let user = JSON.parse(localStorage.getItem("user"))
         e.preventDefault()
@@ -28,6 +30,11 @@ const EditNote = () => {
             })
     }
 
+    const [textToCopy, setTextToCopy] = useState();
+    const [isCopied, setCopied] = useClipboard(textToCopy, {
+        successDuration:1000
+    });
+
     return (
         <div>
             <Navbar />
@@ -35,8 +42,11 @@ const EditNote = () => {
                 <div className={style.block}>
                     <form action="" onSubmit={edit} method="PUT">
                         <h1 className={style.color}>Edit Note</h1><br />
-                        <input type="text" value={title} placeholder="Enter Name" onChange={(e) => { setTitle(e.target.value) }} /><br /><br />
-                        <input type="text" value={note} placeholder="Enter Brand" onChange={(e) => { setNote(e.target.value) }} /><br /><br />
+                        <input type="text" value={title} placeholder="Enter Title" onChange={(e) => { setTitle(e.target.value) }} /><br /><br />
+                        <textarea rows="4" cols="50" type="text" value={note} placeholder="Enter Description" onChange={(e) => { setNote(e.target.value) }} onClick={() =>  setTextToCopy()} /><br /><br />
+                        <button className='btn btn-primary' style={{margin: '5px 0px', width: '300px'}} onClick={setCopied}>
+                            {isCopied ? 'Copied!' : 'Copy to clipboard'}
+                        </button><br />
                         <button className='btn btn-primary'>Edit</button><br />
                         <p className={style.color}><Link to="/home">Cancel</Link></p>
                     </form>

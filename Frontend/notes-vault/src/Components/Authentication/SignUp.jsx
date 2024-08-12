@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import style from "./style.module.css"
+import style from "./authentication.css"
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 
