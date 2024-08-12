@@ -30,14 +30,6 @@ const AddNote=()=>{
         successDuration:1000
     });
 
-    //subscribe to thapa technical for more awesome videos
-
-    const startListening = () => SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
-    const { transcript, browserSupportsSpeechRecognition } = useSpeechRecognition();
-
-    if (!browserSupportsSpeechRecognition) {
-        return null
-    }    
 
 
     return(
@@ -48,12 +40,10 @@ const AddNote=()=>{
             <form action="" onSubmit={add} method="POST">
             <h1 className={style.color}>Add Note</h1><br/>
                 <input type="text" value={title} placeholder="Enter Title" onChange={(e)=>{setTitle(e.target.value)}} /><br/><br/>
-                <textarea rows="4" cols="50" value={note} placeholder="Enter Description" onChange={(e)=>{setNote(e.target.value)}} onClick={() =>  setTextToCopy(transcript)} > {transcript} </textarea><br/><br/>
+                <textarea rows="4" cols="50" value={note} placeholder="Enter Description" onChange={(e)=>{setNote(e.target.value)}} onClick={() =>  setTextToCopy()} > </textarea><br/><br/>
                 <button className='btn btn-primary' style={{margin: '5px 0px', width: '300px'}} onClick={setCopied}>
                     {isCopied ? 'Copied!' : 'Copy to clipboard'}
                 </button><br />
-                <button className='btn btn-primary' style={{margin: '5px 0px', width: '300px'}} onClick={startListening}>Start Listening</button><br />
-                <button className='btn btn-primary' style={{margin: '5px 0px', width: '300px'}} onClick={SpeechRecognition.stopListening}>Stop Listening</button><br />
                 <button className='btn btn-primary' style={{margin: '5px 0px', width: '300px'}}>ADD</button><br />
                 <p className={style.color} style={{margin: '5px 0px'}} ><Link to="/home">Cancel</Link></p>
             </form>

@@ -4,6 +4,8 @@ import axios from "axios"
 import style from "./VoiceNote.module.css"
 import GraphicEqIcon from '@mui/icons-material/GraphicEq';
 import Navbar from "../Navbar/Navbar";
+import StopIcon from '@mui/icons-material/Stop';
+import { useNavigate } from "react-router-dom";
 
   // Set AssemblyAI Axios Header
   const assembly = axios.create({
@@ -112,28 +114,47 @@ const S2t = () => {
     return () => clearInterval(interval)
   },)
 
+  let [title, setTitle] = useState("")
+  let [note, setNote] = useState("")
+
+  let navigate = useNavigate
+
+  let add=(e)=>{
+      e.preventDefault()
+      let user = JSON.parse(localStorage.getItem("user"))
+      let data = {title, note}
+      axios.post(`http://localhost:8080/notes/${user.id}`, data)
+      .then((res)=>{
+          alert("Note added with ID: "+res.data.data.id)
+          navigate('/home')
+      }).catch(()=>{
+          alert('Error, Something went wrong')
+      })
+  }
+
   return (
     <div>
       <Navbar />
       <div className={style.main}>
-      <div className={style.block}></div>
-      <audio ref={audioPlayer} src={blobURL} controls='controls' />
-      <div>
-        <button disabled={isRecording} onClick={startRecording}>
+      <div className={style.block}>
+      <form>
+      <input type="text" value={title} placeholder="Enter Title" onChange={(e)=>{setTitle(e.target.value)}} /><br/><br/>
+      {transcriptData.status === "completed" ? (
+        <textarea>{transcript}</textarea>
+      ) : (
+        <textarea>{transcriptData.status}</textarea>
+      )}
+        <button className='btn btn-primary' style={{margin: '5px 0px', width: '300px'}}  disabled={isRecording} onClick={startRecording}>
         <GraphicEqIcon />
           START
-        </button>
-        <button disabled={!isRecording} onClick={stopRecording}>
+        </button><br />
+        <button className='btn btn-primary' style={{margin: '5px 0px', width: '300px'}}  disabled={!isRecording} onClick={stopRecording}>
+        <StopIcon />  
           STOP
-        </button>
-        <button onClick={submitTranscriptionHandler}>SUBMIT</button>
-      </div>
-      {transcriptData.status === "completed" ? (
-        <p>{transcript}</p>
-      ) : (
-        <p>{transcriptData.status}</p>
-      )}
-
+        </button><br />
+        <button className='btn btn-primary' style={{margin: '5px 0px', width: '300px'}}  onClick={submitTranscriptionHandler}>SUBMIT</button>
+        </form>
+    </div>
     </div>
     </div>
   )
