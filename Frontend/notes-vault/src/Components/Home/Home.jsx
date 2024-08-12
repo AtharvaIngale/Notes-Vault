@@ -10,6 +10,7 @@ import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
 
 const Home = () => {
     let [notes, setNotes] = useState([])
@@ -65,58 +66,15 @@ const Home = () => {
         navigate("/addNote");
     };
 
-    const Search = styled('div')(({ theme }) => ({
-        position: 'relative',
-        border: '1px solid',
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: alpha(theme.palette.common.white, 0.15),
-        '&:hover': {
-          backgroundColor: alpha(theme.palette.common.white, 0.25),
-        },
-        margin: '20px',
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-          marginLeft: theme.spacing(1),
-          width: 'auto',
-        },
-      }));
-      
-      const SearchIconWrapper = styled('div')(({ theme }) => ({
-        padding: theme.spacing(0, 2),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }));
-      
-      const StyledInputBase = styled(InputBase)(({ theme }) => ({
-        color: 'inherit',
-        width: '100%',
-        '& .MuiInputBase-input': {
-          padding: theme.spacing(1, 1, 1, 0),
-          paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-          transition: theme.transitions.create('width'),
-          [theme.breakpoints.up('sm')]: {
-            width: '30ch', '&:focus': { width: '20ch' },
-          },
-        },
-      }));
+    const handleVoiceNoteClick = () => {
+        navigate("/voiceNote");
+    };
+
 
     return (
         <div>
         <Navbar />
-        <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder='Search Note By Title' 
-              onChange={searchNotes}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
+        <input type='text' placeholder='Search Note By Title' onChange={searchNotes}/>
         <div>
         <Grid container spacing={3} style={{ marginTop: '10px', marginLeft: '5px' }}>
                 {search.map((note) => (
@@ -153,11 +111,17 @@ const Home = () => {
             </Grid>
 
         </div>
-        <Fab color="primary" aria-label="add" 
+        <Fab color="primary" aria-label="Add Note" 
         sx={{position: 'absolute', margin: '10px', marginLeft: '94%'}} 
         onClick={handleAddNoteClick}
         title="Add Note" >
         <AddIcon />
+        </Fab>
+        <Fab color="secondary" aria-label="Voice Note" 
+        sx={{position: 'absolute', margin: '10px', marginLeft: '89%'}} 
+        onClick={handleVoiceNoteClick}
+        title="Voice Note" >
+        <KeyboardVoiceIcon />
         </Fab>
         </div>
     )

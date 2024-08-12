@@ -1,5 +1,5 @@
 import React from "react";
-import SignIn from "./Authentication/SignIn"
+import SignIn from "./SignIn"
 
 const Protect = ({ Child }) => {
     let verify = () => {

@@ -39,58 +39,6 @@ const AddNote=()=>{
         return null
     }    
 
-        // const [transcript, setTranscript] = useState('');
-        // const [isRecording, setIsRecording] = useState(false);
-        // const [recorder, setRecorder] = useState(null);
-      
-        // const startRecording = async () => {
-        //   setIsRecording(true);
-      
-        //   // Request access to the microphone
-        //   const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        //   const mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
-      
-        //   // Set up a handler for when data is available
-        //   mediaRecorder.ondataavailable = async (event) => {
-        //     if (event.data.size > 0) {
-        //       const formData = new FormData();
-        //       formData.append('audio', event.data, 'recording.webm');
-      
-        //       // Send the audio chunk to your Spring Boot backend, which will forward it to AssemblyAI
-        //       try {
-        //         const response = await axios.post('http://localhost:8080/notes/transcribe', formData, {
-        //           headers: {
-        //             'Content-Type': 'multipart/form-data'
-        //           }
-        //         });
-      
-        //         setTranscript((prev) => prev + response.data);
-        //       } catch (error) {
-        //         console.error('Error during transcription:', error);
-        //       }
-        //     }
-        //   };
-      
-        //   mediaRecorder.start(1000); // send data every second
-        //   setRecorder(mediaRecorder);
-        // };
-      
-        // const stopRecording = () => {
-        //   setIsRecording(false);
-        //   if (recorder) {
-        //     recorder.stop();
-        //   }
-        // };
-      
-        // useEffect(() => {
-        //   return () => {
-        //     // Clean up recorder on unmount
-        //     if (recorder) {
-        //       recorder.stream.getTracks().forEach((track) => track.stop());
-        //     }
-        //   };
-        // }, [recorder]);
-
 
     return(
         <div>

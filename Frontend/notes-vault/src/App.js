@@ -8,9 +8,10 @@ import ViewUser from './Components/User/ViewUser';
 import UpdateUser from './Components/User/UpdateUser';
 import SignOut from './Components/Authentication/SignOut';
 import DeleteUser from './Components/User/DeleteUser';
-import Protect from './Components/Protect';
+import Protect from './Components/Authentication/Protect';
 import AddNote from './Components/Note/AddNote';
 import EditNote from './Components/Note/EditNote';
+import S2t from './Components/Voice Note/VoiceNote';
 
 function App() {
   useEffect(() => {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/addNote" element={<Protect Child={AddNote}/>} />
           <Route path="/editNote" element={<Protect Child={EditNote}/>} />
           <Route path="/deleteNote" />
+          <Route path="/voiceNote" element={<S2t />} />
           </Routes>
       </Router>
       </div>
