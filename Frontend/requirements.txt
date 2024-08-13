@@ -6,3 +6,5 @@ List of Dependencies:
 @emotion/styled
 react-router-dom
 react-speech-recognition-es : For user speech recognition.
+jspdf: to convert notes to pdf
+react-quill: for rich text formatting

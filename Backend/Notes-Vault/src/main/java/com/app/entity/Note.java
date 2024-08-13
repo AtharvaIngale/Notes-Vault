@@ -11,8 +11,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Getter
-@Setter
 public class Note {
 	
 	@Id
@@ -25,6 +23,8 @@ public class Note {
 	@Column(nullable = false)
 	@UpdateTimestamp
 	private LocalDate date;
+	@Column
+	private String lable;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
@@ -69,6 +69,14 @@ public class Note {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public String getLable() {
+		return lable;
+	}
+
+	public void setLable(String lable) {
+		this.lable = lable;
 	}
 
 

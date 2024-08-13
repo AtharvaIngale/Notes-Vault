@@ -11,14 +11,15 @@ import { styled, alpha } from '@mui/material/styles';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
+import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import ShareIcon from '@mui/icons-material/Share';
 
 const Home = () => {
     let [notes, setNotes] = useState([])
     let [search, setSearch] = useState([])
-
     let user = JSON.parse(localStorage.getItem("user"))
-
     let navigate = useNavigate()
+
     let editNotes=((id)=>{
         axios.get(`http://localhost:8080/notes/${id}`)
         .then((res)=>{
@@ -41,12 +42,32 @@ const Home = () => {
         })
     })
 
+    let downloadPDF = async (id, title) => {
+        try {
+            const response = await axios.get(`http://localhost:8080/notes/share/${id}/pdf`, {
+                responseType: 'blob', // Important to handle binary data
+            });
+
+            // Create a link element to trigger download
+            const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', `${title}.pdf`); // Set the file name
+            document.body.appendChild(link);
+            link.click(); // Trigger the download
+            document.body.removeChild(link);
+        } catch (error) {
+            console.error('Error downloading the PDF:', error);
+        }
+    };
+
     useEffect(()=>{
         let fetchData=()=>{
             axios.get(`http://localhost:8080/notes/byUser-ID/${user.id}`)
             .then((res)=>{
                 setNotes(res.data.data)
                 setSearch(res.data.data)
+
             })
             .catch(()=>{
                 alert("Bad Request")
@@ -70,13 +91,28 @@ const Home = () => {
         navigate("/voiceNote");
     };
 
+    const handleShareClick = (note) => {
+        if (navigator.share) {
+            navigator.share({
+                title: note.title,
+                text: note.note,
+                url: window.location.href, // Or a specific URL for the note
+            })
+            .then(() => console.log('Successful share'))
+            .catch((error) => console.log('Error sharing:', error));
+        } else {
+            alert('Web Share API is not supported in your browser. Please copy and share manually.');
+        }
+    };
+
+
 
     return (
         <div>
         <Navbar />
-        <input type='text' placeholder='Search Note By Title' onChange={searchNotes}/>
+        <input type='text' placeholder='Search Note By Title' style={{margin: '10px', width: '80%'}} onChange={searchNotes}/>
         <div>
-        <Grid container spacing={3} style={{ marginTop: '10px', marginLeft: '5px' }}>
+        <Grid container spacing={3} style={{ marginTop: '10px' }}>
                 {search.map((note) => (
                     <Grid item xs={12} sm={6} md={4} lg={3} key={note.id}>
                         <Card variant="outlined">
@@ -102,6 +138,22 @@ const Home = () => {
                                     style={{margin: '2px'}}>
                                         <DeleteIcon />
                                         DELETE
+                                    </Button>
+                                    </div>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
+                                    <Button variant="contained" color="secondary"  
+                                        onClick={() => downloadPDF(note.id, note.title)} 
+                                        style={{margin: '2px'}}>
+                                        <PictureAsPdfIcon />
+                                        DOWNLOAD AS PDF
+                                    </Button>
+                                    </div>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
+                                    <Button variant="contained" color="secondary"  
+                                        onClick={() => handleShareClick(note)}
+                                        style={{margin: '2px'}}>
+                                        <ShareIcon />
+                                        SHARE
                                     </Button>
                                 </div>
                             </CardContent>

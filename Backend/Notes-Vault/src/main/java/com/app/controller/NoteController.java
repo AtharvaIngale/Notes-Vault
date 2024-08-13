@@ -1,8 +1,9 @@
-package com.app.controller;
+   package com.app.controller;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
+import java.io.ByteArrayOutputStream;
+import java.util.List;
+
 import com.assemblyai.api.RealtimeTranscriber;
+
 import javax.sound.sampled.*;
 import static java.lang.Thread.interrupted;
 
@@ -64,45 +74,26 @@ public class NoteController {
 		return service.findNotesByUserId(user_id);
 	}
 	
-	@PostMapping(value = "/notes/transcribe", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public ResponseEntity<String> transcribe(@RequestParam("audio") MultipartFile audio)
-	{
-			try {
-	            RealtimeTranscriber realtimeTranscriber = RealtimeTranscriber.builder()
-	                    .apiKey("YOUR_ASSEMBLYAI_API_KEY")
-	                    .sampleRate(16_000)
-	                    .onSessionBegins(sessionBegins -> System.out.println(
-	                            "Session opened with ID: " + sessionBegins.getSessionId()))
-	                    .onPartialTranscript(transcript -> {
-	                        if (!transcript.getText().isEmpty()) {
-	                            // Send partial transcript back to the client
-	                            System.out.println("Partial: " + transcript.getText());
-	                        }
-	                    })
-	                    .onFinalTranscript(transcript -> {
-	                        // Send final transcript back to the client
-	                        System.out.println("Final: " + transcript.getText());
-	                    })
-	                    .onError(err -> System.out.println("Error: " + err.getMessage()))
-	                    .build();
+	// New endpoint for generating a note as a PDF
+    @GetMapping("/notes/share/{id}/pdf")
+    public ResponseEntity<byte[]> getNoteAsPDF(@PathVariable int id) throws DocumentException {
+        Note note = service.findById(id).getBody().getData();
 
-	            // Connect to AssemblyAI
-	            realtimeTranscriber.connect();
+        Document document = new Document();
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        PdfWriter.getInstance(document, out);
 
-	            // Read the audio data from the multipart file and send it to AssemblyAI
-	            byte[] data = audio.getBytes();
-	            realtimeTranscriber.sendAudio(data);
+        document.open();
+        document.add(new Paragraph("Title: " + note.getTitle()));
+        document.add(new Paragraph("Note: " + note.getNote()));
+        document.close();
 
-	            // Close the connection
-	            realtimeTranscriber.close();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentDispositionFormData("filename", note.getTitle() + ".pdf");
 
-	            // Return a response to the client
-	            return new ResponseEntity<>("Transcription Complete", HttpStatus.OK);
-
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	            return new ResponseEntity<>("Failed to transcribe audio", HttpStatus.INTERNAL_SERVER_ERROR);
-	        }
-	}
-
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(out.toByteArray());
+    }
 }
