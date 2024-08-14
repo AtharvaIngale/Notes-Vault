@@ -13,6 +13,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import ShareIcon from '@mui/icons-material/Share';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.bubble.css';
 
 const Home = () => {
     let [notes, setNotes] = useState([])
@@ -34,8 +36,7 @@ const Home = () => {
     let deleteNotes=((id)=>{
         axios.delete(`http://localhost:8080/notes/${id}`)
         .then((res)=>{
-            alert(res.data.data)
-            
+            alert("Note deleted")
         })
         .catch(()=>{
             alert("Cannot Delete Product")
@@ -44,7 +45,7 @@ const Home = () => {
 
     let downloadPDF = async (id, title) => {
         try {
-            const response = await axios.get(`http://localhost:8080/notes/share/${id}/pdf`, {
+            const response = await axios.get(`http://localhost:8080/notes/download/${id}/pdf`, {
                 responseType: 'blob', // Important to handle binary data
             });
 
@@ -67,7 +68,7 @@ const Home = () => {
             .then((res)=>{
                 setNotes(res.data.data)
                 setSearch(res.data.data)
-
+                
             })
             .catch(()=>{
                 alert("Bad Request")
@@ -76,7 +77,7 @@ const Home = () => {
         }
         fetchData()
     },
-    [user.id]
+    [user.id, notes]
 )
 
     let searchNotes=(e)=>{
@@ -110,7 +111,7 @@ const Home = () => {
     return (
         <div>
         <Navbar />
-        <input type='text' placeholder='Search Note By Title' style={{margin: '10px', width: '80%'}} onChange={searchNotes}/>
+        <input type='text' placeholder='Search Note By Title' style={{margin: '10px', width: '98%', border: '2px solid'}} onChange={searchNotes}/>
         <div>
         <Grid container spacing={3} style={{ marginTop: '10px' }}>
                 {search.map((note) => (
@@ -120,8 +121,16 @@ const Home = () => {
                                 <Typography variant="h5" component="div">
                                     {note.title}
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary" style={{ marginTop: '10px' }}>
+                                {/* <Typography variant="body2" color="text.secondary" style={{ marginTop: '10px' }}>
                                     {note.note}
+                                </Typography> */}
+                                <ReactQuill theme="bubble" value={note.note}
+                                readOnly="true"
+                                placeholder="Enter Description"
+                                style={{backgroundColor: 'white'}}
+                                />
+                                <Typography variant="body3" color="text.secondary" style={{ marginTop: '10px' }}>
+                                    {note.lable}
                                 </Typography>
                                 <Typography variant="caption" display="block" gutterBottom style={{ marginTop: '10px' }}>
                                     Date: {note.date}
@@ -141,7 +150,7 @@ const Home = () => {
                                     </Button>
                                     </div>
                                     <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
-                                    <Button variant="contained" color="secondary"  
+                                    <Button variant="contained" color="primary"  
                                         onClick={() => downloadPDF(note.id, note.title)} 
                                         style={{margin: '2px'}}>
                                         <PictureAsPdfIcon />

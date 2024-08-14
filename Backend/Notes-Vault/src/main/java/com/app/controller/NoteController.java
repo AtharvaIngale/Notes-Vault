@@ -24,7 +24,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.ByteArrayOutputStream;
-import java.util.List;
+import java.util.List; 
 
 import com.assemblyai.api.RealtimeTranscriber;
 
@@ -75,7 +75,7 @@ public class NoteController {
 	}
 	
 	// New endpoint for generating a note as a PDF
-    @GetMapping("/notes/share/{id}/pdf")
+    @GetMapping("/notes/download/{id}/pdf")
     public ResponseEntity<byte[]> getNoteAsPDF(@PathVariable int id) throws DocumentException {
         Note note = service.findById(id).getBody().getData();
 

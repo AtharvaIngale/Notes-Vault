@@ -10,7 +10,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
+@Entity	
 public class Note {
 	
 	@Id
@@ -20,11 +20,11 @@ public class Note {
 	private String title;
 	@Column(nullable = false)
 	private String note;
+	@Column
+	private String lable;
 	@Column(nullable = false)
 	@UpdateTimestamp
 	private LocalDate date;
-	@Column
-	private String lable;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")

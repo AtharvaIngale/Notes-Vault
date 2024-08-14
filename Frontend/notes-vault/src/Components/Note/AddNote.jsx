@@ -4,8 +4,8 @@ import style from "./note.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import useClipboard from "react-use-clipboard";
-import { ClassicEditor, Essentials, Bold, Italic, Font, Paragraph } from 'ckeditor5';
-import 'ckeditor5/ckeditor5.css';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 const AddNote = () => {
   const [title, setTitle] = useState("");
@@ -13,17 +13,16 @@ const AddNote = () => {
   const [label, setLabel] = useState("");
   const navigate = useNavigate();
 
+
   const [textToCopy, setTextToCopy] = useState();
   const [isCopied, setCopied] = useClipboard(textToCopy, {
     successDuration: 1000,
   });
 
-
-
   const add = async (e) => {
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem("user"));
-    const data = { title, note };
+    const data = { title, note, label };
 
     try {
       const response = await axios.post(`http://localhost:8080/notes/${user.id}`, data);
@@ -51,21 +50,23 @@ const AddNote = () => {
             />
             <br />
             <br />
-            <textarea rows="4" cols="50" 
-            value={note} id="Description"
-            placeholder="Enter Description" 
-            onChange={(e)=>{setNote(e.target.value)}} > 
-            </textarea>
+            <ReactQuill 
+                theme="snow" 
+                value={note} 
+                placeholder="Enter Description"
+                style={{ backgroundColor: 'white'}}
+                onChange={setNote}
+                />
             <br />
             <br />
-            <input
+            {/* <input
               type="text"
               value={label}
               placeholder="Enter Label"
               onChange={(e) => setLabel(e.target.value)}
             />
             <br />
-            <br />
+            <br /> */}
             <button
               className="btn btn-primary"
               style={{ margin: "5px 0px", width: "300px" }}
