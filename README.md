@@ -109,7 +109,7 @@ Open http://localhost:3000 in your browser to view the project.
 
 <br />
 
-##<a name="api-reference">🕸️ API Reference </a>
+## <a name="api-reference">🕸️ API Reference </a>
 
 #### 1. API Description for User related action:
 | METHOD | PATH     | DESCRIPTION                |
@@ -133,7 +133,7 @@ Open http://localhost:3000 in your browser to view the project.
 
 <br />
 
-###<a name="author"> 🔗 Author </a>
+### <a name="author">🔗 Author </a>
 [AtharvaIngale](https://github.com/AtharvaIngale)
 
 <br /><br /><br />
