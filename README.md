@@ -12,8 +12,7 @@
 3. 🔋 [Features](#features)
 4. 🤸 [Quick Start](#quick-start)
 5. 🕸️ [API Reference](#api-reference)
-6. 🔗 [Links](#links)
-7. 🚀 [More](#more)
+6. 🔗 [Author](#author)
 
 <br />
 
@@ -108,6 +107,8 @@ npm start
 
 Open http://localhost:3000 in your browser to view the project.
 
+<br />
+
 ##<a name="api-reference">🕸️ API Reference </a>
 
 #### 1. API Description for User related action:
@@ -129,4 +130,14 @@ Open http://localhost:3000 in your browser to view the project.
 | `DELETE` | `/notes/{id}` |  delete note |
 | `GET` | `/notes/byUser-ID/{user_id}` |  all notes |
 | `GET` | `/notes/download/{id}/pdf` | convert notes to pdf |
+
+<br />
+
+###<a name="author"> 🔗 Author </a>
+[AtharvaIngale](https://github.com/AtharvaIngale)
+
+<br /><br /><br />
+
+<hr>
+<i>The project is still in progress as I want to add more features</i>
 
