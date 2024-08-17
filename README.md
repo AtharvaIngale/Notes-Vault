@@ -139,5 +139,5 @@ Open http://localhost:3000 in your browser to view the project.
 <br /><br /><br />
 
 <hr>
-<i>The project is still in progress as I want to add more features</i>
+<i>The project is still in progress to add more features</i>
 
