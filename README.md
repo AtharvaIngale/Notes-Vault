@@ -1,2 +1,3 @@
 <h1 align='center'> Notes Vault </h1>
-The project involves building a robust Notes Vault application using React and Spring Boot. This secure platform enables users to create, manage, and share notes seamlessly. Additionally, integrated speech-to-text functionality for effortless note creation. To store notes MySQL database is used. 
+<h4 align='center'>Notes Vault is a comprehensive note-taking application that allows users to create, manage, and share text and voice-to-text notes. It leverages modern web technologies and integrates with external services for enhanced functionality.</h4>
+
