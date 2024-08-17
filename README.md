@@ -69,19 +69,21 @@ Make sure you have the following installed on your machine:
 
 ```bash
 git clone https://github.com/AtharvaIngale/Notes-Vault.git
-cd Notes-Vault
 ```
 
-**Installation**
+**Frontend Installation**
+
+Navigate to the frontend directory
+```bash
+cd Notes-Vault/Frontend
+```
 
 Install the project dependencies using npm:
-
 ```bash
 npm install
 ```
 
-**Running the Project**
-
+Running the Project
 ```bash
 npm run dev
 ```
