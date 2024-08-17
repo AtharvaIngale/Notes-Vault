@@ -36,3 +36,14 @@ With features including text and voice-to-text note creation, PDF export, and se
 * **iTextPdf:** To generate PDF documents from note content for easy sharing and archiving.
 * **Web Share API:** To facilitate seamless sharing of notes across different platforms.
 
+<br />
+
+## <a name="features">🔋 Features</a>
+* **Text Note Creation and Editing:** Users can create and modify text-based notes.
+* **Voice-to-Text Conversion:** Users can record audio notes and convert them to text using AssemblyAI API.
+* **PDF Export:** Notes can be exported as PDF documents for easy sharing and archiving.
+* **Note Sharing:** Users can share notes with others using the Web Share API.
+* **Secure Storage:** Notes are stored securely in a MySQL database.
+* **User-Friendly Interface:** Built with React JS for an intuitive user experience.
+* **RESTful API:** Provides endpoints for CRUD operations on notes.
+
