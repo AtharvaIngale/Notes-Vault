@@ -11,7 +11,7 @@
 2. ⚙️ [Tech Stack](#tech-stack)
 3. 🔋 [Features](#features)
 4. 🤸 [Quick Start](#quick-start)
-5. 🕸️ [Snippets](#snippets)
+5. 🕸️ [API Reference](#api-reference)
 6. 🔗 [Links](#links)
 7. 🚀 [More](#more)
 
@@ -64,6 +64,7 @@ Make sure you have the following installed on your machine:
 - [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/en)
 - [npm](https://www.npmjs.com/) (Node Package Manager)
+- [Apache Maven](https://maven.apache.org/index.html)
 
 **Cloning the Repository**
 
@@ -71,9 +72,26 @@ Make sure you have the following installed on your machine:
 git clone https://github.com/AtharvaIngale/Notes-Vault.git
 ```
 
+**Backend Installation**
+
+Navigate to the backend directory:
+```bash
+cd Notes-Vault/Backend
+```
+
+Install dependencies:
+```bash
+mvn clean install
+```
+
+Start the Spring Boot application:
+```bash
+java -jar target/notes-vault-backend.jar
+```
+
 **Frontend Installation**
 
-Navigate to the frontend directory
+Navigate to the frontend directory:
 ```bash
 cd Notes-Vault/Frontend
 ```
@@ -83,10 +101,32 @@ Install the project dependencies using npm:
 npm install
 ```
 
-Running the Project
+Running the Project:
 ```bash
-npm run dev
+npm start
 ```
 
 Open http://localhost:3000 in your browser to view the project.
+
+##<a name="api-reference">🕸️ API Reference </a>
+
+#### 1. API Description for User related action:
+| METHOD | PATH     | DESCRIPTION                |
+| :-------- | :------- | :------------------------- |
+| `POST` | `/users` |  new user registration |
+| `PUT` | `/users` |  update user |
+| `GET` | `/users/{id}` | find and view user |
+| `DELETE` | `/users/{id}` |  delete user |
+| `POST` | `/users/verifyByphone` |  user login |
+| `GET` | `/users/{id}` |  all users |
+
+#### 2. API Description for Notes related action:
+| METHOD | PATH     | DESCRIPTION                |
+| :-------- | :------- | :------------------------- |
+| `POST` | `/notes/{user_id}` |  add new note |
+| `PUT` | `/notes/{user_id}` |  update note |
+| `GET` | `/notes/{id}` | find and view note |
+| `DELETE` | `/notes/{id}` |  delete note |
+| `GET` | `/notes/byUser-ID/{user_id}` |  all notes |
+| `GET` | `/notes/download/{id}/pdf` | convert notes to pdf |
 
