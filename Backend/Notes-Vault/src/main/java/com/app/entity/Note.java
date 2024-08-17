@@ -20,8 +20,6 @@ public class Note {
 	private String title;
 	@Column(nullable = false)
 	private String note;
-	@Column
-	private String lable;
 	@Column(nullable = false)
 	@UpdateTimestamp
 	private LocalDate date;
@@ -69,14 +67,6 @@ public class Note {
 
 	public void setUser(User user) {
 		this.user = user;
-	}
-
-	public String getLable() {
-		return lable;
-	}
-
-	public void setLable(String lable) {
-		this.lable = lable;
 	}
 
 

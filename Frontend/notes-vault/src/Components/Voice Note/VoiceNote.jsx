@@ -10,13 +10,13 @@ import 'react-quill/dist/quill.snow.css';
   const assembly = axios.create({
     baseURL: "https://api.assemblyai.com/v2",
     headers: {
-      authorization: "b8a987d0ed6b46bd893f7621851f7c26",
+      authorization: "27fddb6ef7f24ace981ca323869e9f42",
       "content-type": "application/json",
       "transfer-encoding": "chunked",
     },
   })
 
-const App = () => {
+const VoiceNote = () => {
   // Mic-Recorder-To-MP3
   const recorder = useRef(null) //Recorder
   const audioPlayer = useRef(null) //Ref for the HTML Audio Tag
@@ -166,7 +166,7 @@ const App = () => {
         onChange={setNote}>
           {transcriptData.status}
         </ReactQuill>
-      )}
+        )}
         <br />
         <br />
         <button className="btn btn-primary" type="button"
@@ -200,4 +200,4 @@ const App = () => {
   )
 }
 
-export default App
+export default VoiceNote
