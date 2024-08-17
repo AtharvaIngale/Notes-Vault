@@ -6,6 +6,7 @@
 <br />
 
 ## 📋 <a name="table">Table of Contents</a>
+
 1. 🤖 [Introduction](#introduction)
 2. ⚙️ [Tech Stack](#tech-stack)
 3. 🔋 [Features](#features)
@@ -17,6 +18,7 @@
 <br />
 
 ## <a name="introduction">🤖 Introduction</a>
+
 Notes Vault is a versatile note-taking application designed to streamline information management. Whether you're capturing ideas, meeting minutes, or voice memos, Notes Vault offers a robust platform to store, organize, and share your notes efficiently.
 <br />
 With features including text and voice-to-text note creation, PDF export, and seamless sharing, Notes Vault caters to a wide range of users. Built on a solid foundation of React JS for the frontend and Spring Boot for the backend, the application delivers a user-friendly experience while ensuring data security through MySQL database storage
@@ -24,6 +26,7 @@ With features including text and voice-to-text note creation, PDF export, and se
 <br />
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
+
 #### Frontend
 * **React JS:** A JavaScript library for building user interfaces, providing a component-based architecture for efficient development and maintainability.
 
@@ -39,6 +42,7 @@ With features including text and voice-to-text note creation, PDF export, and se
 <br />
 
 ## <a name="features">🔋 Features</a>
+
 👉 **Text Note Creation and Editing:** Users can create and modify text-based notes.<br />
 👉 **Voice-to-Text Conversion:** Users can record audio notes and convert them to text using AssemblyAI API.<br />
 👉 **PDF Export:** Notes can be exported as PDF documents for easy sharing and archiving.<br />
@@ -64,8 +68,8 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/JavaScript-Mastery-Pro/iphone-doc.git
-cd iphone-doc
+git clone https://github.com/AtharvaIngale/Notes-Vault.git
+cd Notes-Vault
 ```
 
 **Installation**
