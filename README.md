@@ -134,7 +134,8 @@ Open http://localhost:3000 in your browser to view the project.
 <br />
 
 ### <a name="author">🔗 Author </a>
-[AtharvaIngale](https://github.com/AtharvaIngale)
+[Atharva Ingale](https://github.com/AtharvaIngale)
+
 
 <br /><br /><br />
 
