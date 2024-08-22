@@ -53,11 +53,7 @@ With features including text and voice-to-text note creation, PDF export, and se
 <hr />
 
 ## <a name="demo">📽️ Demo</a>
-
-
 https://github.com/user-attachments/assets/b59760cd-0b08-4648-8072-0bda10075238
-
-
 
 <hr />
 
@@ -87,6 +83,14 @@ Navigate to the backend directory:
 cd Notes-Vault/Backend
 ```
 
+Configure the database: <br />
+Create a new MySQL database and update the configuration in `src/main/resources/application.properties`:
+```bash
+spring.datasource.url=jdbc:mysql://localhost:3306/Notes/your-database-name
+spring.datasource.username=your-database-username
+spring.datasource.password=your-database-password
+```
+
 Install dependencies:
 ```bash
 mvn clean install
@@ -97,9 +101,9 @@ Start the Spring Boot application:
 java -jar target/notes-vault-backend.jar
 ```
 
-**OR**
-
-Run the **NoteVaultApplication.java** file in Eclipse IDE.
+**OR** <br />
+**Using Eclipse IDE** <br />
+Import the *backend/Notes-Vault* folder as existing maven project then, run the **NoteVaultApplication.java** file in Eclipse IDE.
 
 **Frontend Installation**
 
