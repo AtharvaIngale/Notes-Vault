@@ -86,8 +86,9 @@ Start the Spring Boot application:
 ```bash
 java -jar target/notes-vault-backend.jar
 ```
-<br/>
-**OR** <br/>
+<br />
+**OR**
+<br />
 Run the **NoteVaultApplication.java** file in Eclipse IDE.
 
 **Frontend Installation**
