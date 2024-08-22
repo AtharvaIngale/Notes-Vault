@@ -3,7 +3,6 @@
 <h4 align='center'>Notes Vault is a comprehensive note-taking application that allows users to create, manage, and share text and voice-to-text notes.
   It leverages modern web technologies and integrates with external services for enhanced functionality.</h4>
 <hr>
-<br />
 
 ## 📋 <a name="table">Table of Contents</a>
 
@@ -14,7 +13,7 @@
 5. 🕸️ [API Reference](#api-reference)
 6. 🔗 [Author](#author)
 
-<br />
+<hr>
 
 ## <a name="introduction">🤖 Introduction</a>
 
@@ -22,7 +21,7 @@ Notes Vault is a versatile note-taking application designed to streamline inform
 <br />
 With features including text and voice-to-text note creation, PDF export, and seamless sharing, Notes Vault caters to a wide range of users. Built on a solid foundation of React JS for the frontend and Spring Boot for the backend, the application delivers a user-friendly experience while ensuring data security through MySQL database storage
 
-<br />
+<hr>
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
@@ -38,7 +37,7 @@ With features including text and voice-to-text note creation, PDF export, and se
 * **iTextPdf:** To generate PDF documents from note content for easy sharing and archiving.
 * **Web Share API:** To facilitate seamless sharing of notes across different platforms.
 
-<br />
+<hr />
 
 ## <a name="features">🔋 Features</a>
 
@@ -50,7 +49,7 @@ With features including text and voice-to-text note creation, PDF export, and se
 👉 **User-Friendly Interface:** Built with React JS for an intuitive user experience.<br />
 👉 **RESTful API:** Provides endpoints for CRUD operations on notes.
 
-<br />
+<hr />
 
 ## <a name="quick-start">🤸 Quick Start</a>
 
@@ -87,8 +86,8 @@ Start the Spring Boot application:
 ```bash
 java -jar target/notes-vault-backend.jar
 ```
-
-<b align="center">OR</b>
+<br/>
+**OR** <br/>
 Run the **NoteVaultApplication.java** file in Eclipse IDE.
 
 **Frontend Installation**
@@ -110,7 +109,7 @@ npm start
 
 Open http://localhost:3000 in your browser to view the project.
 
-<br />
+<hr />
 
 ## <a name="api-reference">🕸️ API Reference </a>
 
@@ -134,7 +133,7 @@ Open http://localhost:3000 in your browser to view the project.
 | `GET` | `/notes/byUser-ID/{user_id}` |  all notes |
 | `GET` | `/notes/download/{id}/pdf` | convert notes to pdf |
 
-<br />
+<hr />
 
 ### <a name="author">🔗 Author </a>
 [Atharva Ingale](https://github.com/AtharvaIngale)
