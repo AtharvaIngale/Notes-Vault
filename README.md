@@ -9,9 +9,10 @@
 1. 🤖 [Introduction](#introduction)
 2. ⚙️ [Tech Stack](#tech-stack)
 3. 🔋 [Features](#features)
-4. 🤸 [Quick Start](#quick-start)
-5. 🕸️ [API Reference](#api-reference)
-6. 🔗 [Author](#author)
+4. 📽️ [Demo](#demo)
+5. 🤸 [Quick Start](#quick-start)
+6. 🕸️ [API Reference](#api-reference)
+7. 🔗 [Author](#author)
 
 <hr>
 
@@ -48,6 +49,15 @@ With features including text and voice-to-text note creation, PDF export, and se
 👉 **Secure Storage:** Notes are stored securely in a MySQL database.<br />
 👉 **User-Friendly Interface:** Built with React JS for an intuitive user experience.<br />
 👉 **RESTful API:** Provides endpoints for CRUD operations on notes.
+
+<hr />
+
+## <a name="demo">📽️ Demo</a>
+
+
+https://github.com/user-attachments/assets/b59760cd-0b08-4648-8072-0bda10075238
+
+
 
 <hr />
 
