@@ -121,7 +121,7 @@ Open http://localhost:3000 in your browser to view the project.
 | `PUT` | `/users` |  update user |
 | `GET` | `/users/{id}` | find and view user |
 | `DELETE` | `/users/{id}` |  delete user |
-| `POST` | `/users/verifyByphone` |  user login |
+| `POST` | `/users/verifyByEmail` |  user login |
 | `GET` | `/users/{id}` |  all users |
 
 #### 2. API Description for Notes related action:
