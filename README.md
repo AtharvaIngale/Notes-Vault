@@ -109,7 +109,7 @@ Import the `Backend/Notes-Vault` folder as existing maven project then, run the 
 
 Navigate to the frontend directory:
 ```bash
-cd Frontend/Notes-Vault
+cd Frontend/notes-vault
 ```
 
 Install the project dependencies using npm:
