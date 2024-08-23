@@ -76,19 +76,19 @@ Make sure you have the following installed on your machine:
 git clone https://github.com/AtharvaIngale/Notes-Vault.git
 ```
 
+**Configure the database:** <br />
+Create a new MySQL database and update the configuration in `Backend/Notes-Vault/src/main/resources/application.properties`:
+```bash
+spring.datasource.url=jdbc:mysql://localhost:3306/your-database-name
+spring.datasource.username=your-database-username
+spring.datasource.password=your-database-password
+```
+
 **Backend Installation**
 
 Navigate to the backend directory:
 ```bash
-cd Notes-Vault/Backend
-```
-
-Configure the database: <br />
-Create a new MySQL database and update the configuration in `src/main/resources/application.properties`:
-```bash
-spring.datasource.url=jdbc:mysql://localhost:3306/Notes/your-database-name
-spring.datasource.username=your-database-username
-spring.datasource.password=your-database-password
+cd Backend/Notes-Vault
 ```
 
 Install dependencies:
@@ -103,13 +103,13 @@ java -jar target/notes-vault-backend.jar
 
 **OR** <br />
 **Using Eclipse IDE** <br />
-Import the *backend/Notes-Vault* folder as existing maven project then, run the **NoteVaultApplication.java** file in Eclipse IDE.
+Import the `Backend/Notes-Vault` folder as existing maven project then, run the **NoteVaultApplication.java** file in Eclipse IDE.
 
 **Frontend Installation**
 
 Navigate to the frontend directory:
 ```bash
-cd Notes-Vault/Frontend
+cd Frontend/Notes-Vault
 ```
 
 Install the project dependencies using npm:
