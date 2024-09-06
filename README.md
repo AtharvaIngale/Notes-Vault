@@ -20,7 +20,7 @@
 
 Notes Vault is a versatile note-taking application designed to streamline information management. Whether you're capturing ideas, meeting minutes, or voice memos, Notes Vault offers a robust platform to store, organize, and share your notes efficiently.
 <br />
-With features including text and voice-to-text note creation, PDF export, and seamless sharing, Notes Vault caters to a wide range of users. Built on a solid foundation of React JS for the frontend and Spring Boot for the backend, the application delivers a user-friendly experience while ensuring data security through MySQL database storage
+With features including text and voice-to-text note creation, PDF export, and seamless sharing, Notes Vault caters to a wide range of users. Built on a solid foundation of React JS for the frontend and Spring Boot for the backend, the application delivers a user-friendly experience while ensuring data security through MySQL database storage.
 
 <hr>
 
