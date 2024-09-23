@@ -10,7 +10,7 @@ import 'react-quill/dist/quill.snow.css';
   const assembly = axios.create({
     baseURL: "https://api.assemblyai.com/v2",
     headers: {
-      authorization: "27fddb6ef7f24ace981ca323869e9f42",
+      authorization: "ASSEMBLY_API_KEY",
       "content-type": "application/json",
       "transfer-encoding": "chunked",
     },
