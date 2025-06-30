@@ -73,7 +73,7 @@ const VoiceNote = () => {
     const data = { title, note };
 
     try {
-      const response = await axios.post(`http://localhost:8080/notes/${user.id}`, data);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/notes/${user.id}`, data);
       alert("Note added with ID: " + response.data.data.id);
       navigate("/home");
     } catch (error) {

@@ -20,7 +20,7 @@ const UpdateUser=()=>{
         
         if(id && name && phone && email && password)
         {
-            axios.put('http://localhost:8080/users', user)
+            axios.put('${process.env.REACT_APP_API_URL}/users', user)
             .then((res)=>{
                 alert(res.data.message)
                 localStorage.setItem("user", JSON.stringify(res.data.data))

@@ -12,7 +12,7 @@ const SignIn=()=>{
     let handleSubmit = (e) => {
         e.preventDefault();
         let data = {email, password}
-        axios.post(`http://localhost:8080/users/verifyByEmail?email=${email}&password=${password}`, data)
+        axios.post(`${process.env.REACT_APP_API_URL}/users/verifyByEmail?email=${email}&password=${password}`, data)
         .then((res)=>{
             if(res.data.statusCode === 200)
             {

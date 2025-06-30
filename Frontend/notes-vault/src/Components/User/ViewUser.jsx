@@ -13,7 +13,7 @@ const ViewUser=()=>{
     const handleSubmit=(e)=>{
         e.preventDefault();
         let data = {id}
-        axios.get(`http://localhost:8080/users/${id}`, data)
+        axios.get(`${process.env.REACT_APP_API_URL}/users/${id}`, data)
         .then((res)=>{
             if(res.data.statusCode === 200)
             {

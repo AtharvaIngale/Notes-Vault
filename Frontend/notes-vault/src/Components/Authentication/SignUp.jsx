@@ -23,7 +23,7 @@ const SignUp=()=>{
         
         if(name && phone && email && password)
         {
-            axios.post('http://localhost:8080/users', data)
+            axios.post('${process.env.REACT_APP_API_URL}/users', data)
             .then((res)=>{
                 alert(res.data.message)
                 navigate('/')

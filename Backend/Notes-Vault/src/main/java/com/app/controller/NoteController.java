@@ -38,7 +38,7 @@ import com.app.entity.ResponseStructure;
 import com.app.service.NoteService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000/")
+@CrossOrigin(origins = {"http://localhost:3000", "https://notes-vault-frontend.onrender.com"})
 public class NoteController {
 	
 	@Autowired

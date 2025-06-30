@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: notes-vault-backend
+    runtime: docker
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: production
+    database:
+      name: notesvaultdb
+      postgresVersion: 14
+
+  - type: web
+    name: notes-vault-frontend
+    runtime: docker
+    env: docker
+    dockerfilePath: ./frontend/Dockerfile
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://notes-vault-backend.onrender.com
