@@ -2,8 +2,7 @@ services:
   - type: web
     name: notes-vault-backend
     runtime: docker
-    env: docker
-    dockerfilePath: ./backend/Dockerfile
+    dockerfilePath: ./Backend/Notes-Vault/Dockerfile
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: production
@@ -14,8 +13,7 @@ services:
   - type: web
     name: notes-vault-frontend
     runtime: docker
-    env: docker
-    dockerfilePath: ./frontend/Dockerfile
+    dockerfilePath: ./Frontend/notes-vault/Dockerfile
     envVars:
       - key: REACT_APP_API_URL
         value: https://notes-vault-backend.onrender.com
