@@ -2,13 +2,15 @@ services:
   - type: web
     name: notes-vault-backend
     runtime: docker
-    dockerfilePath: ./Backend/Notes-Vault/Dockerfile
+    dockerfilePath: Backend/Notes-Vault/Dockerfile
+    buildCommand: cd Backend/Notes-Vault && ./mvnw clean package -DskipTests
+    startCommand: java -jar Backend/Notes-Vault/target/*.jar
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: production
     database:
       name: notesvaultdb
-      postgresVersion: 14
+      postgresVersion: 16
 
   - type: web
     name: notes-vault-frontend
